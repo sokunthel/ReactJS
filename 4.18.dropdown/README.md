@@ -1,4 +1,4 @@
-Goal: Create a bootstrap-like dropdown
+Goal: Create a bootstrap-like dropdown http://screencast.com/t/myJmAR8W
 1. When button is clicked, open/close the dropdown list
 2. When item in the list is selected/clicked,
   a. close the dropdown list,
