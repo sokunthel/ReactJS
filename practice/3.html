@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>ReactJS - Practices</title>
+  <script src="https://fb.me/react-0.13.3.min.js"></script>
+  <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+  </div>
+  <script type="text/jsx">
+    var Badge = React.createClass({
+      render: function(){
+        return <button className="btn btn-primary" type="button">
+          {this.props.buttonText} <span className="badge">{this.props.number}</span>
+        </button>
+      }
+    });
+
+    var Thumbnail = React.createClass({
+      render: function(){
+        return <div className="row">
+          <div className="col-sm-6 col-md-4">
+            <div className="thumbnail">
+              <img src={this.props.imageUrl} />
+              <div className="caption">
+                <h3>{this.props.header}</h3>
+                <p>{this.props.description}</p>
+                <p><Badge buttonText={this.props.callToAction} number={this.props.number}/></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    });
+
+    var options = {
+      header: 'Github',
+      description: 'GitHub is a web-based Git repository hosting service, which offers all of the distributed revision control and source code management (SCM) functionality of Git as well as adding its own features.',
+      imageUrl: 'https://assets-cdn.github.com/images/modules/logos_page/Octocat.png',
+      callToAction: 'Download',
+      number: '99'
+    };
+
+    var element = React.createElement(Thumbnail, options);
+    React.render(element, document.querySelector(".container"));
+  </script>
+</body>
+</html>
