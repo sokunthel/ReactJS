@@ -31,6 +31,7 @@ module.exports = React.createClass({
       <span className="input-group-btn">
         {this.changesButtons()}
         <button
+          type="button"
           className="btn btn-default"
           onClick={this.handleDeleteClick}
           >
@@ -45,12 +46,14 @@ module.exports = React.createClass({
     } else {
       return [
         <button
+          type="button"
           className="btn btn-default"
           onClick={this.handleSaveClick}
           >
           Save
         </button>,
         <button
+          type="button"
           className="btn btn-default"
           onClick={this.handleUndoClick}
           >
@@ -62,12 +65,14 @@ module.exports = React.createClass({
   handleSaveClick: function() {
     this.fb.update({text: this.state.text});
     this.setState({textChanged: false});
+    console.log('saved!');
   },
   handleUndoClick: function() {
     this.setState({
       text: this.props.item.text,
       textChanged: false
     });
+    console.log('changes reverted!')
   },
   handleTextChange: function(event) {
     this.setState({
